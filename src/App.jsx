@@ -10,12 +10,15 @@ function App() {
     email: ''
   })  
 
-  const [ artworks, setArtworks ] = useState([])
+  const [ userArtworks, setUserArtworks ] = useState({
+    paintings: [],
+    drawings: []
+  })
 
   return (
     <div>
       <UserContext.Provider value={[ user,  setUser ]}>
-        <GalleryContext.Provider value ={[ artworks, setArtworks ]}>
+        <GalleryContext.Provider value ={[ userArtworks, setUserArtworks ]}>
           <RouterProvider router={router} />
         </GalleryContext.Provider>
       </UserContext.Provider>
