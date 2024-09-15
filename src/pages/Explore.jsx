@@ -5,6 +5,7 @@ import { GalleryContext } from "../context/GalleryContext"
 import { getMuseumData } from "../services/getMuseumData"
 import { checkData } from "../services/utils/checkData"
 import { getArtInstData } from "../services/getArtInstituteData"
+import { DisplayArtwork } from "../components/DisplayArtworks"
 
 export const Explore = () => {
     const [ user, setUser ] = useContext(UserContext)
@@ -15,9 +16,9 @@ export const Explore = () => {
     const [ artworks, setArtworks ] = useState([])
 
     useEffect(() => {
-        let allArtworks = []
-
         let pageNo = 1
+
+        let allArtworks = []
 
         const artworkData = async (pageNo) => {
 
@@ -33,23 +34,24 @@ export const Explore = () => {
                 pageNo++
                 await artworkData(pageNo)
             }
-            else {
+            else {;
+                
                 const artInstArtworks = await getArtInstData()
                 
                 artInstArtworks.forEach((artwork) => {
                     allArtworks.push(artwork)
                 })
-
+                
                 setArtworks(allArtworks)
             }
         }
-
         artworkData(pageNo)
     }, [])
 
     return (
-        <>
+        <div>
             <h2> Explore Artworks </h2>
-        </>
+            <DisplayArtwork data={artworks} />
+        </div>
     )
 }
