@@ -10,10 +10,7 @@ function App() {
     email: ''
   })  
 
-  const [ userArtworks, setUserArtworks ] = useState({
-    paintings: [],
-    drawings: []
-  })
+  const [ userArtworks, setUserArtworks ] = useState([])
 
   return (
     <div>

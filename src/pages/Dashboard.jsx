@@ -7,7 +7,7 @@ export const Dashboard = () => {
     const [ user, setUser ] = useContext(UserContext)
     const { name, email } = user
 
-    const [ artworks, setArtworks ] = useContext(GalleryContext)
+    const [ userArtworks, setUserArtworks ] = useContext(GalleryContext)
 
     return (
         <div>
