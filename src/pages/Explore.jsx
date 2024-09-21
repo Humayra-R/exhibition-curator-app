@@ -6,6 +6,7 @@ import { getMuseumData } from "../services/getMuseumData"
 import { checkData } from "../services/utils/checkData"
 import { getArtInstData } from "../services/getArtInstituteData"
 import { DisplayArtwork } from "../components/DisplayArtworks"
+import { shuffleData } from "../components/utils/shuffleData"
 
 export const Explore = () => {
     const [ user, setUser ] = useContext(UserContext)
@@ -34,15 +35,15 @@ export const Explore = () => {
                 pageNo++
                 await artworkData(pageNo)
             }
-            else {;
-                
+            else {
                 const artInstArtworks = await getArtInstData()
                 
                 artInstArtworks.forEach((artwork) => {
                     allArtworks.push(artwork)
                 })
                 
-                setArtworks(allArtworks)
+                const shuffledArtworks = shuffleData(allArtworks)
+                setArtworks(shuffledArtworks)
             }
         }
         artworkData(pageNo)

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Link, Navigate } from "react-router-dom"
 import { useContext } from 'react'
 import { UserContext } from '../context/UserContext'
@@ -6,12 +6,13 @@ import { curators } from "../assets/curatorData"
 
 export const Login = () => {
     const [ user, setUser ] = useContext(UserContext)
+    const { name:userName, email:userEmail } = user
 
     const [ loginInput, setloginInput ] = useState({
         email: "",
         password: ""
     })
-    
+
     const handleChange = (e) => {
         const { name, value } = e.target
         
@@ -37,37 +38,40 @@ export const Login = () => {
     }
 
     return (
-        <section>
-            <form onSubmit={handleSubmit} >
-                <div>
-                    <label>
-                        Email
-                    <input 
-                        type="email" 
-                        name="email" 
-                        required 
-                        onChange={handleChange}
-                        value={loginInput.email} 
-                    />
-                    </label>              
-                </div>
-                <div>
-                    <label>
-                        Password
+        <div>
+            {userEmail && <Navigate to="/dashboard" /> }
+            <section>
+                <form onSubmit={handleSubmit} >
+                    {!userEmail && <div>
+                        <label>
+                            Email
                         <input 
-                            type="password"
-                            name="password" 
+                            type="email" 
+                            name="email" 
                             required 
                             onChange={handleChange}
-                            value={loginInput.password} 
+                            value={loginInput.email} 
                         />
-                    </label>
-                </div>
-                <div>
-                    <button type="submit" aria-label="button for submitting login form" > Sign In </button>       
-                </div>
-            </form>
-            <Link to="/">Sign Up</Link>
-        </section>
+                        </label>              
+                    </div>}
+                    {!userEmail && <div>
+                        <label>
+                            Password
+                            <input 
+                                type="password"
+                                name="password" 
+                                required 
+                                onChange={handleChange}
+                                value={loginInput.password} 
+                            />
+                        </label>
+                    </div>}
+                    {!userEmail && <div>
+                        <button type="submit" aria-label="button for submitting login form" > Sign In </button>       
+                    </div>}
+                </form>
+                {!userEmail && <Link to="/">Sign Up</Link>}
+            </section>
+        </div>
     )
 } 
