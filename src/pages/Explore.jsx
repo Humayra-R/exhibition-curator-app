@@ -1,12 +1,10 @@
-import { Link } from "react-router-dom"
-import { useContext, useEffect, useState } from 'react'
-import { UserContext } from '../context/UserContext'
-import { GalleryContext } from "../context/GalleryContext"
+import { useState, useEffect } from "react"
 import { getMuseumData } from "../services/getMuseumData"
-import { checkData } from "../services/utils/checkData"
 import { getArtInstData } from "../services/getArtInstituteData"
 import { DisplayArtwork } from "../components/DisplayArtworks"
 import { shuffleData } from "../components/utils/shuffleData"
+import { FilterByMedium } from "../components/FilterArtworks"
+
 
 export const Explore = () => {
     
@@ -19,11 +17,9 @@ export const Explore = () => {
 
         const artworkData = async (pageNo) => {
 
-            const museumPaintingRecords =  await getMuseumData('painting', pageNo)
+            const museumPaintingRecords = await getMuseumData('painting', pageNo)
 
-            const museumPaintingData = checkData(museumPaintingRecords)
-
-            museumPaintingData.forEach((painting) => {
+            museumPaintingRecords.forEach((painting) => {
                 allArtworks.push(painting)
             })
 
@@ -39,8 +35,9 @@ export const Explore = () => {
                 })
                 
                 const shuffledArtworks = shuffleData(allArtworks)
+                
                 setArtworks(shuffledArtworks)
-                console.log(allArtworks, 'explore data length');
+                console.log(allArtworks.length, 'explore data length');
                 
             }
         }
@@ -50,6 +47,7 @@ export const Explore = () => {
     return (
         <div>
             <h2> Explore Artworks </h2>
+            <FilterByMedium />
             <DisplayArtwork data={artworks} />
         </div>
     )

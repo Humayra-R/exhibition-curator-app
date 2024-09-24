@@ -35,8 +35,6 @@ export const Register = () => {
     }
 
     const handleSubmit = (e) => {
-        console.log(formInput, 'input');
-        
         e.preventDefault()
 
         const userEmail = curators.find((user) => {
