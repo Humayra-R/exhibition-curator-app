@@ -35,6 +35,8 @@ export const Register = () => {
     }
 
     const handleSubmit = (e) => {
+        console.log(formInput, 'input');
+        
         e.preventDefault()
 
         const userEmail = curators.find((user) => {
@@ -45,8 +47,6 @@ export const Register = () => {
             const {firstName, lastName, email, password} = formInput
             
             curators.push({firstName, lastName, email, password})
-
-            
         }
 
         setFormInput((prev) => {

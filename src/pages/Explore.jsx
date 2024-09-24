@@ -9,11 +9,7 @@ import { DisplayArtwork } from "../components/DisplayArtworks"
 import { shuffleData } from "../components/utils/shuffleData"
 
 export const Explore = () => {
-    const [ user, setUser ] = useContext(UserContext)
-    const { name, email } = user
-
-    const [ userArtworks, setUserArtworks ] = useContext(GalleryContext)
-
+    
     const [ artworks, setArtworks ] = useState([])
 
     useEffect(() => {
@@ -44,6 +40,8 @@ export const Explore = () => {
                 
                 const shuffledArtworks = shuffleData(allArtworks)
                 setArtworks(shuffledArtworks)
+                console.log(allArtworks, 'explore data length');
+                
             }
         }
         artworkData(pageNo)

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import { useContext } from 'react'
 import { UserContext } from '../context/UserContext'
 import { GalleryContext } from "../context/GalleryContext"
@@ -12,12 +12,15 @@ export const Dashboard = () => {
 
     return (
         <div>
+            {!email && <Navigate to="/login" />}
             <div>
               {email && <p> {name}'s Gallery </p>}  
             </div>
             <div>
                {email && userArtworks.length === 0 && <p> <Link to="/explore">Curate</Link> a new collection </p>}
-               {email && userArtworks.length > 0 && <button> del </button>}
+               {email && userArtworks.length > 0 && <button aria-label="button for deleting all artworks in the current exhibition" onClick={() => {
+                setUserArtworks([])
+               }} > del </button>}
             </div>
             <div>
                 {!email && <p> <Link to="/login">Sign In</Link>/<Link to="/">Up</Link> to start collecting </p>}
