@@ -1,8 +1,12 @@
-import { useState } from "react"
+import {useContext, useEffect, useState } from "react"
 import { curators } from "../assets/curatorData"
 import { Link } from "react-router-dom"
+import { UserContext } from "../context/UserContext"
 
 export const Register = () => {
+    const [ user, setUser ] = useContext(UserContext)
+    const { name, email } = user
+
     const [ formInput, setFormInput ] = useState({
         firstName: "",
         lastName: "",
@@ -12,6 +16,13 @@ export const Register = () => {
 
     const [ isNewUser, setIsNewUser ] = useState(null)
     
+    useEffect(() => {
+        if (isNewUser) {
+            setUser((curr) => {
+                return {...curr.name = firstName, ...curr.email = email}
+            })
+        }
+    }, [isNewUser])
     
     const handleChange = (e) => {
         
@@ -24,17 +35,19 @@ export const Register = () => {
     }
 
     const handleSubmit = (e) => {
+        console.log(formInput, 'input');
+        
         e.preventDefault()
 
-        const { email:userEmail } = curators.find((user) => {
+        const userEmail = curators.find((user) => {
             return user.email === formInput.email
-        })
-        
-        if (userEmail) {
-            setIsNewUser(true)
+        })    
+
+        if (!userEmail) {
+            const {firstName, lastName, email, password} = formInput
+            
+            curators.push({firstName, lastName, email, password})
         }
-        
-        curators.push({firstName, lastName, email, password})
 
         setFormInput((prev) => {
             return {...prev,

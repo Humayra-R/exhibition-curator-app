@@ -12,7 +12,6 @@ export const Home = () => {
         {!email && <Register />}
         {!email && <Link to="login" > Sign In </Link>}
         {email && <p> Hello {name} </p>}
-        {email && <Link to="logout" > Sign Out </Link> }
         </>
     )
 }

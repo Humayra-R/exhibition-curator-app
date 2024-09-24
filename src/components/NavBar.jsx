@@ -4,7 +4,7 @@ import { Header } from "./Header"
 import { UserContext } from "../context/UserContext";
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
-import { green, yellow } from '@mui/material/colors';
+import { yellow } from '@mui/material/colors';
 
 
 export const NavBar = () => {
@@ -13,9 +13,9 @@ export const NavBar = () => {
     
     return (
     <div>
+        <ul>
         <Header />
-        <nav> 
-            <ul>
+            <nav> 
                 <li>
                     <NavLink to="/" >
                         Home
@@ -41,12 +41,14 @@ export const NavBar = () => {
                     </NavLink> }
                 </li>
                 <li>
-                    {email && <NavLink to="logout" >
-                        Sign Out
-                    </NavLink> }
+                   {email && <button onClick={() => {
+                    setUser((prevUser) => {
+                    return {...prevUser,  name: '',
+                        email: ''}
+                    })}}> Sign Out </button>} 
                 </li>
-            </ul>
-        </nav>
+            </nav>
+        </ul>
         <main>
             <Outlet />
         </main> 
