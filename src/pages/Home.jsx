@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { UserContext } from '../context/UserContext'
 import { Register } from "../components/Register"
 

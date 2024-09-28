@@ -14,11 +14,12 @@ function App() {
 
   return (
     <div>
-      <UserContext.Provider value={[ user,  setUser ]}>
-        <GalleryContext.Provider value ={[ userArtworks, setUserArtworks ]}>
-          <RouterProvider router={router} />
-        </GalleryContext.Provider>
-      </UserContext.Provider>
+      
+        <UserContext.Provider value={[ user,  setUser ]}>
+          <GalleryContext.Provider value ={[ userArtworks, setUserArtworks ]}>
+              <RouterProvider router={router} />
+          </GalleryContext.Provider>
+        </UserContext.Provider> 
     </div>
   )
 }

@@ -13,42 +13,42 @@ export const NavBar = () => {
     
     return (
     <div>
-        <ul>
         <Header />
-            <nav> 
-                <li>
-                    <NavLink to="/" >
-                        Home
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/explore" >
-                        Explore
-                    </NavLink>
-                </li>
-                <li>
-                    {email && 
-                    <NavLink to="dashboard"> 
-                        <Stack>
-                            <Avatar sx={{ bgcolor: yellow[800], width: 30, height: 30 }} > {name[0].toUpperCase()}
-                            </Avatar>
-                        </Stack>    
-                    </NavLink> }
-                </li>
-                <li>
-                    {!email && <NavLink to="login" >
-                        Sign In
-                    </NavLink> }
-                </li>
-                <li>
-                   {email && <button onClick={() => {
-                    setUser((prevUser) => {
-                    return {...prevUser,  name: '',
-                        email: ''}
-                    })}}> Sign Out </button>} 
-                </li>
+            <nav>
+                <ul>
+                    <li>
+                        <NavLink to="/" >
+                            Home
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/explore" >
+                            Explore
+                        </NavLink>
+                    </li>
+                    <li>
+                        {email && 
+                        <NavLink to="dashboard"> 
+                            <Stack>
+                                <Avatar sx={{ bgcolor: yellow[800], width: 30, height: 30 }} > {name[0].toUpperCase()}
+                                </Avatar>
+                            </Stack>    
+                        </NavLink> }
+                    </li>
+                    <li>
+                        {!email && <NavLink to="login" >
+                            Sign In
+                        </NavLink> }
+                    </li>
+                    <li>
+                    {email && <button onClick={() => {
+                        setUser((prevUser) => {
+                        return {...prevUser,  name: '',
+                            email: ''}
+                        })}}> Sign Out </button>} 
+                    </li>
+                </ul>
             </nav>
-        </ul>
         <main>
             <Outlet />
         </main> 

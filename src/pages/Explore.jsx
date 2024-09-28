@@ -4,11 +4,17 @@ import { getArtInstData } from "../services/getArtInstituteData"
 import { DisplayArtwork } from "../components/DisplayArtworks"
 import { shuffleData } from "../components/utils/shuffleData"
 import { FilterByMedium } from "../components/FilterArtworks"
+import { useErrorBoundary } from "react-error-boundary"
+import { Loader } from "../components/Loader"
 
 
 export const Explore = () => {
     
     const [ artworks, setArtworks ] = useState([])
+
+    const [ isLoading, setIsLoading ] = useState(false)
+
+    const { showBoundary } = useErrorBoundary()
 
     useEffect(() => {
         let pageNo = 1
@@ -17,28 +23,36 @@ export const Explore = () => {
 
         const artworkData = async (pageNo) => {
 
-            const museumPaintingRecords = await getMuseumData('painting', pageNo)
+           try { 
+                const museumPaintingRecords = await getMuseumData('painting', pageNo)
 
-            museumPaintingRecords.forEach((painting) => {
-                allArtworks.push(painting)
-            })
+                setIsLoading(true)
 
-            if (allArtworks.length < 35) {
-                pageNo++
-                await artworkData(pageNo)
-            }
-            else {
-                const artInstArtworks = await getArtInstData()
-                
-                artInstArtworks.forEach((artwork) => {
-                    allArtworks.push(artwork)
+                museumPaintingRecords.forEach((painting) => {
+                    allArtworks.push(painting)
                 })
-                
-                const shuffledArtworks = shuffleData(allArtworks)
-                
-                setArtworks(shuffledArtworks)
-                console.log(allArtworks.length, 'explore data length');
-                
+
+                if (allArtworks.length < 35) {
+                    pageNo++
+                    await artworkData(pageNo)
+                }
+                else {
+                    const artInstArtworks = await getArtInstData()
+                    
+                    artInstArtworks.forEach((artwork) => {
+                        allArtworks.push(artwork)
+                    })
+                    
+                    const shuffledArtworks = shuffleData(allArtworks)
+                    
+                    setArtworks(shuffledArtworks)
+
+                    setIsLoading(false)
+                }
+            }
+            catch (err) {
+                setIsLoading(false)
+                showBoundary(err)
             }
         }
         artworkData(pageNo)
@@ -48,6 +62,7 @@ export const Explore = () => {
         <div>
             <h2> Explore Artworks </h2>
             <FilterByMedium />
+            {isLoading && <Loader />}
             <DisplayArtwork data={artworks} />
         </div>
     )

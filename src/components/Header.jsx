@@ -1,3 +1,3 @@
 export const Header = () => {
-    return <h1> exhibit </h1>
+    return <h1> EXHIBIT </h1>
 }
