@@ -1,21 +1,44 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom"
-import { Header } from "./Header"
 import { UserContext } from "../context/UserContext";
-import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
-import { yellow } from '@mui/material/colors';
-
+import { Dropdown } from "./Dropdown";
+import "../assets/css/navbar.css"
 
 export const NavBar = () => {
     const [ user, setUser ] = useContext(UserContext)
     const { name, email } = user
     
+    const [ showDropdown, setShowDropDown ] = useState(false)
+
+    const [ isMenuOpen, setisMenuOpen] = useState(false)
+
+    useEffect(() => {
+        if (showDropdown) {
+            setTimeout(() => {
+                setShowDropDown(false)
+            }, "10000")
+        }
+    }, [showDropdown])
+
+    useEffect(() => {
+        if (isMenuOpen) {
+            setTimeout(() => {
+                setisMenuOpen(false)
+            }, "15000")
+        }
+    }, [isMenuOpen])
+
     return (
     <div>
-        <Header />
+        <div>
             <nav>
-                <ul>
+                <h1> EXHIBIT </h1>
+                <div className="menu" onClick={() => {setisMenuOpen(!isMenuOpen)}} >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul className={isMenuOpen ? "open" : ""} >
                     <li>
                         <NavLink to="/" >
                             Home
@@ -26,29 +49,23 @@ export const NavBar = () => {
                             Explore
                         </NavLink>
                     </li>
-                    <li>
-                        {email && 
-                        <NavLink to="dashboard"> 
-                            <Stack>
-                                <Avatar sx={{ bgcolor: yellow[800], width: 30, height: 30 }} > {name[0].toUpperCase()}
-                                </Avatar>
-                            </Stack>    
-                        </NavLink> }
-                    </li>
-                    <li>
-                        {!email && <NavLink to="login" >
+                    {!email && <li>
+                        <NavLink to="login" >
                             Sign In
-                        </NavLink> }
-                    </li>
-                    <li>
-                    {email && <button onClick={() => {
-                        setUser((prevUser) => {
-                        return {...prevUser,  name: '',
-                            email: ''}
-                        })}}> Sign Out </button>} 
-                    </li>
+                        </NavLink> 
+                    </li>}
+                    {email && <li>
+                        <NavLink to="/dashboard" onMouseEnter={() => setShowDropDown(true)} > 
+                           {name[0].toUpperCase() + name.slice(1)}
+                        </NavLink>
+                    </li>}
+                    {isMenuOpen && email && <li className="nav-item" onClick={() => {setUser({name: '', email: ''})}}  >
+                            Sign Out
+                        </li>}
                 </ul>
-            </nav>
+            </nav>  
+        </div>
+        {showDropdown && !isMenuOpen && <div onMouseLeave={() => {setShowDropDown(false)}}>  <Dropdown /> </div>}
         <main>
             <Outlet />
         </main> 
