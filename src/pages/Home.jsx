@@ -8,13 +8,17 @@ export const Home = () => {
     const { name, email } = user
     
     return (
-        <>
-        <p> Welcome to Exhibit!  </p>
-        <p> A digital space for your artistic voice and vision. </p>  
-        <p> Just register or sign in to start curating your virtual gallery. </p>      
-
-        {!email && <Register />}
-        {!email && <Link to="login" > Sign In </Link>}
-        </>
+        <div className="reg-form">
+            <p>
+               <h2> Welcome to Exhibit</h2> 
+                A digital space for your artistic voice. <br />
+                Register or sign in to start curating your gallery.   
+            </p>   
+            <div>
+                {!email && <Register />}
+                {!email && <Link to="login" > Sign In </Link>}
+            </div>
+            
+        </div>
     )
 }

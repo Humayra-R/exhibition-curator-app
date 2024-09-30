@@ -61,7 +61,7 @@ export const Explore = () => {
     return (
         <div>
             <h2> Explore Artworks </h2>
-            <FilterByMedium />
+            <FilterByMedium exploreArtworks={artworks} />
             {isLoading && <Loader />}
             <DisplayArtwork data={artworks} />
         </div>

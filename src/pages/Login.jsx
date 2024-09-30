@@ -8,6 +8,8 @@ export const Login = () => {
     const [ user, setUser ] = useContext(UserContext)
     const { name:userName, email:userEmail } = user
 
+    const [ msg, setMsg ] = useState('')
+
     const [ loginInput, setloginInput ] = useState({
         email: "",
         password: ""
@@ -24,13 +26,15 @@ export const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         
-        const { firstName, email:userEmail } = curators.find((user) => {
+        const userDetails = curators.find((user) => {
             return user.email === loginInput.email && user.password === loginInput.password
         })
-        
-        setUser((prev) => {
-            return {...prev, name: firstName, email: userEmail}
-        })
+
+        if (!userDetails) {
+            setMsg("Email does not exist")
+        }
+
+        setUser({name: userDetails.firstName, email: userDetails.email})
         
         setloginInput((prev) => {
             return {...prev, email: '', password: ''}
@@ -70,6 +74,7 @@ export const Login = () => {
                         <button type="submit" aria-label="button for submitting login form" > Sign In </button>       
                     </div>}
                 </form>
+                {msg && <p> {msg} </p>}
                 {!userEmail && <Link to="/">Sign Up</Link>}
             </section>
         </div>

@@ -22,6 +22,7 @@ export const NavBar = () => {
 
     useEffect(() => {
         if (isMenuOpen) {
+            setShowDropDown(false)
             setTimeout(() => {
                 setisMenuOpen(false)
             }, "15000")
