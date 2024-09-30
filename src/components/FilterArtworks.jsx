@@ -27,14 +27,14 @@ export const FilterByMedium = ({ exploreArtworks }) => {
 
     let isValidFilterQuery
     if (filterQuery) {
+
         filterByMedium.forEach((opt) => {
         if (filterQuery.toLowerCase() === filterByMedium.value) {
             isValidFilterQuery = true
         }
     })
-    } 
-        
     
+    } 
     
     useEffect(() => {
         

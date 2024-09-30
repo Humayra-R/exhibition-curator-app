@@ -34,14 +34,6 @@ export const DisplayArtwork = ({ data }) => {
                     return [...curr, data]
             })
         }
-        // else {
-        //     if (!email) {
-        //         setMsg("Sign in or register to add artworks")
-        //     }
-        //     else if (userArtworks.length > 30) {
-        //         setMsg("You have reached the limit")
-        //     } 
-        // }
     }
 
     const handleDel = (data) => { 
@@ -107,7 +99,7 @@ export const DisplayArtwork = ({ data }) => {
                                     </li>
                                 </Link>
                             </div>
-                                {!artRefs.includes(checkId) && <button onClick={() => handleAdd(artwork)}> add </button>}
+                                {!artRefs.includes(checkId) && email && <button onClick={() => handleAdd(artwork)}> add </button>}
                                 {artRefs.includes(checkId) && email && <button onClick={() => handleDel(artwork)}> delete </button>}  
                         </div>
                     )

@@ -13,8 +13,6 @@ export const Dropdown = () => {
         {id: 1, title: "Dashboard", type: "link", clsName: "submenu-item" },
         {id: 2, title: "Sign Out", type: "button", clsName: "submenu-item" }
     ]
-
-    console.log(openDropdown, 'opendrop');
     
     return (
         <div>

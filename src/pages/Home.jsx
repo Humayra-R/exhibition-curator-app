@@ -9,11 +9,12 @@ export const Home = () => {
     
     return (
         <div className="reg-form">
-            <p>
-               <h2> Welcome to Exhibit</h2> 
-                A digital space for your artistic voice. <br />
+            <div>
+                <h2> Welcome to Exhibit</h2> 
+                <p> A digital space for your artistic voice. <br />
                 Register or sign in to start curating your gallery.   
-            </p>   
+                </p>   
+            </div>
             <div>
                 {!email && <Register />}
                 {!email && <Link to="login" > Sign In </Link>}
