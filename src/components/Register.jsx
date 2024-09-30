@@ -14,15 +14,7 @@ export const Register = () => {
         password: ""
     })
 
-    const [ isNewUser, setIsNewUser ] = useState(null)
-    
-    useEffect(() => {
-        if (isNewUser) {
-            setUser((curr) => {
-                return {...curr.name = firstName, ...curr.email = email}
-            })
-        }
-    }, [isNewUser])
+    const [ msg, setMsg ] = useState('')
     
     const handleChange = (e) => {
         
@@ -35,8 +27,6 @@ export const Register = () => {
     }
 
     const handleSubmit = (e) => {
-        console.log(formInput, 'input');
-        
         e.preventDefault()
 
         const userEmail = curators.find((user) => {
@@ -44,9 +34,14 @@ export const Register = () => {
         })    
 
         if (!userEmail) {
-            const {firstName, lastName, email, password} = formInput
+            const {firstName, lastName, email:newEmail , password} = formInput
             
-            curators.push({firstName, lastName, email, password})
+            curators.push({firstName, lastName, newEmail, password})
+            
+            setUser({name: firstName, email: newEmail})
+        }
+        else if (userEmail) {
+            setMsg("Email already exists")
         }
 
         setFormInput((prev) => {
@@ -62,6 +57,7 @@ export const Register = () => {
     return (
         <section>
             <form onSubmit={handleSubmit} >
+                <div>
                 <div>
                     <label>
                         First Name
@@ -89,8 +85,9 @@ export const Register = () => {
                 <div>
                     <button type="submit" aria-label="button for submitting registration form" > Sign Up </button>       
                 </div>
+                </div>
             </form>
-            {isNewUser ? <p> Email already exists, please <Link to="login">sign in</Link> instead </p> : null}
+            {msg && <p> {msg} </p>}
         </section>
     )
 }

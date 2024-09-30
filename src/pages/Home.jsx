@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import { useContext } from 'react'
 import { UserContext } from '../context/UserContext'
 import { Register } from "../components/Register"
@@ -8,10 +8,17 @@ export const Home = () => {
     const { name, email } = user
     
     return (
-        <>
-        {!email && <Register />}
-        {!email && <Link to="login" > Sign In </Link>}
-        {email && <p> Hello {name} </p>}
-        </>
+        <div className="reg-form">
+            <p>
+               <h2> Welcome to Exhibit</h2> 
+                A digital space for your artistic voice. <br />
+                Register or sign in to start curating your gallery.   
+            </p>   
+            <div>
+                {!email && <Register />}
+                {!email && <Link to="login" > Sign In </Link>}
+            </div>
+            
+        </div>
     )
 }

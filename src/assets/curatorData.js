@@ -1,9 +1,9 @@
 export const curators = [
     {
-        firstName: 'Brishti',
-        lastName: 'Tabbassum',
-        email: 'tabbassumb@gmail.com',
-        password: 'asharmush',
+        firstName: 'Gene',
+        lastName: 'Generic',
+        email: 'generic@gmail.com',
+        password: 'password',
     },
     {
         firstName: 'Borsha',
