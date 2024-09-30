@@ -1,0 +1,31 @@
+.user-submenu {
+    width: 7rem;
+    position: absolute;
+    top: 55px;
+    right: 8.2px;
+    text-align: start;
+}
+
+.user-submenu li {
+    padding-top: 10px;
+    background: #deceb0; 
+    cursor: pointer;
+
+}
+
+.user-submenu-clicked {
+    display: none;
+}
+
+.submenu-item {
+    margin: 0;
+    display: flex;
+    flex-basis: 0;
+    padding: 16px;
+    justify-content: center;
+}
+
+.user-submenu li:hover {
+    background:  #f6e4ad;
+
+}
