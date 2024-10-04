@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Select from "react-select"
-import { filterByMedium } from "../assets/filterByMedium"
+import { filterByMedium } from "../assets/data/filterByMedium"
 import { getMuseumData } from "../services/getMuseumData";
 import { getArtInstFilteredData } from "../services/getArtInstFilteredData";
 import { DisplayArtwork } from "../components/DisplayArtworks"

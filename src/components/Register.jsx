@@ -1,6 +1,6 @@
-import {useContext, useEffect, useState } from "react"
-import { curators } from "../assets/curatorData"
+import {useContext, useState } from "react"
 import { Link } from "react-router-dom"
+import { curators } from "../assets/data/curatorData"
 import { UserContext } from "../context/UserContext"
 
 export const Register = () => {
@@ -55,39 +55,52 @@ export const Register = () => {
     }
 
     return (
-        <section>
-            <form onSubmit={handleSubmit} >
-                <div>
-                <div>
-                    <label>
-                        First Name
-                        <input name="firstName" required onChange={handleChange} value={formInput.firstName} />
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Last Name
-                        <input name="lastName" required onChange={handleChange} value={formInput.lastName} />
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Email
-                        <input name="email" required onChange={handleChange} value={formInput.email} />
-                    </label>              
-                </div>
-                <div>
-                    <label>
-                        Password
-                        <input name="password" required onChange={handleChange} value={formInput.password} />
-                    </label>
-                </div>
-                <div>
-                    <button type="submit" aria-label="button for submitting registration form" > Sign Up </button>       
-                </div>
-                </div>
-            </form>
-            {msg && <p> {msg} </p>}
+        <section className="reg-form">
+                <form onSubmit={handleSubmit}  >
+                    <div>
+                        <div>
+                            <label htmlFor="firstName" >First Name</label> 
+                        </div>
+                        <div>
+                            <input name="firstName" required onChange={handleChange} value={formInput.firstName} />  
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label htmlFor="lastName" >Last Name</label>
+                        </div>
+                        <div>
+                            <input name="lastName" required onChange={handleChange} value={formInput.lastName} />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                           <label htmlFor="email" >Email</label> 
+                        </div>
+                        <div>
+                            <input name="email" required onChange={handleChange} value={formInput.email} />
+                        </div>            
+                    </div>
+                    <div>
+                        <div>
+                            <label htmlFor="password" >Password</label>
+                        </div>
+                        <div>
+                            <input name="password" required onChange={handleChange} value={formInput.password} />
+                        </div> 
+                    </div>
+                    <div className="reg-failed-text">
+                    {msg && <p> {msg} </p>}
+                    </div>
+                    <div className="clickables">
+                        <div>
+                            <button type="submit" aria-label="button for submitting registration form" >Sign Up</button>       
+                        </div>
+                        <div>
+                            {!email && <Link to="login" >Sign In</Link>}
+                        </div>
+                    </div>
+                </form>
         </section>
     )
 }

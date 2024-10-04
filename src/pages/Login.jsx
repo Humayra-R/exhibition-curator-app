@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link, Navigate } from "react-router-dom"
 import { useContext } from 'react'
 import { UserContext } from '../context/UserContext'
-import { curators } from "../assets/curatorData"
+import { curators } from "../assets/data/curatorData"
 
 export const Login = () => {
     const [ user, setUser ] = useContext(UserContext)
