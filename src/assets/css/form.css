@@ -104,3 +104,49 @@ h2, h3 {
     font-size: 1rem;
     text-align: center;
 }
+
+@media (max-width: 842px) {
+   .container {
+        flex-direction: column;
+        margin: 2em;
+   }
+
+   .home-text {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+   }
+   
+   .form-and-link {
+        border-left: solid 3px #e8ba2388;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+   }
+
+   .clickables {
+        align-items: start;
+        margin-left: 0.2em;
+   }
+
+   .clickables a {
+        margin-left: 0.3em;
+   }
+}
+
+@media (max-width: 640px) {
+    .container {
+        flex-direction: column-reverse;
+        margin: 2em;
+   }
+ }
+
+ @media (max-width: 475px) {
+    .container {
+        margin: 0;
+    }
+    .form-and-link input {
+        width: inherit;
+        flex-wrap: wrap;
+    }
+  }

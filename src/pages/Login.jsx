@@ -3,6 +3,7 @@ import { Link, Navigate } from "react-router-dom"
 import { useContext } from 'react'
 import { UserContext } from '../context/UserContext'
 import { curators } from "../assets/data/curatorData"
+import "../assets/css/form.css"
 
 export const Login = () => {
     const [ user, setUser ] = useContext(UserContext)
@@ -42,9 +43,10 @@ export const Login = () => {
     }
 
     return (
-        <div>
+        <div className="container">
             {userEmail && <Navigate to="/dashboard" /> }
             <section>
+                <h2>Sign In:</h2>
                 <form onSubmit={handleSubmit} >
                     {!userEmail && <div>
                         <label>
