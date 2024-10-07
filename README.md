@@ -8,23 +8,34 @@ A website for creating personalised exhibitions built using React JS, JSX and CS
 ---
 
 
+## Contents:
+1. [Introduction](#introduction)
+    a. [Hosted Website](#hosted-website)
+
+2. [Instructions](#instructions)
+
+3. [Acknowledgments](#acknowledgements)
+
+
+---
+
 ## Introduction
 
 
-Exhibit is a website featuring images of artworks from [Victoria & Albert Musuem](#acknowledgements) and the[ Art Institute of Chicago](#acknowledgements) for curating user exhibitions. Once a user creates an account or logs in, they can start adding artworks to their gallery which can be viewed in the user dashboard. The user can add and delete images or delete the entire gallery and start over. The gallery has a limitation of 30 artworks. 
+Exhibit is a website featuring images of artworks from [Victoria & Albert Musuem](#acknowledgements) and the[ Art Institute of Chicago](#acknowledgements) for curating user driven exhibitions. Once a user creates an account or logs in, they can start adding artworks in the exhibition gallery. The user can add and delete images or delete the entire collection and start over. The exhibition gallery can be viewed in the user's dashboard and has a limitation of 30 artworks.
 
-**Existing user details to try out:** 
+**Existing user details for signing in:** 
 
-email: borsha_b@outlook.com 
-password: boishakh
+Email: borsha_b@outlook.com 
+Password: boishakh
 
-More mock users can be added or used from curatorsData.js file located in ./src/assets
+More mock users can be added or used from curatorsData.js file located in ./src/assets.
 
 No data is saved in a database or locally between sessions, but it is advisable not to input any sensitive information nonetheless.
 
 ### Hosted Website
 
-This website is hosted on Netlify.
+The Exhibit website is hosted on Netlify.
 
 <a href="https://virtual-exhibit.netlify.app/" target="_blank">Exhibit</a>
 
@@ -38,6 +49,10 @@ https://virtual-exhibit.netlify.app/
 
 
 The Exhibit project uses Node runtime environment and requires version 21.2.0 or above.
+
+React version 18.3.1 or above is required.
+
+Vite was used to create the React JS template for this project. 
 
 
 #### To run this repository locally:
