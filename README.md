@@ -11,9 +11,9 @@ A website for creating personalised exhibitions built using React JS, JSX and CS
 ## Introduction
 
 
-Exhibit is a website featuring images of artworks from Victoria & Albert Musuem<sup>1</sup> and the Institute of Art Chicago<sup>2</sup> for curating user exhibitions. Once an user creates an account or logs in, they can start adding artworks to their gallery which can be viewed in the user dashboard. The user can add and delete images or delete the entire gallery and start over. The gallery has a limitation of 30 artworks. 
+Exhibit is a website featuring images of artworks from [Victoria & Albert Musuem](#acknowledgements) and the[ Art Institute of Chicago](#acknowledgements) for curating user exhibitions. Once a user creates an account or logs in, they can start adding artworks to their gallery which can be viewed in the user dashboard. The user can add and delete images or delete the entire gallery and start over. The gallery has a limitation of 30 artworks. 
 
-### Existing user details to try out: 
+**Existing user details to try out:** 
 
 email: borsha_b@outlook.com 
 password: boishakh
@@ -26,7 +26,9 @@ No data is saved in a database or locally between sessions, but it is advisable 
 
 This website is hosted on Netlify.
 
-Link: https://virtual-exhibit.netlify.app/
+<a href="https://virtual-exhibit.netlify.app/" target="_blank">Exhibit</a>
+
+https://virtual-exhibit.netlify.app/
 
 
 ---
@@ -55,7 +57,7 @@ cd exhibition-curator-app
 
 ```
 
-3. Enter the command below in the terminal to install required dependencies: 
+3. Enter the command below in the terminal to install the required dependencies: 
 
 ```
 
@@ -76,4 +78,10 @@ npm run dev
 
 ## Acknowledgements
 
+Documentation for the APIs used to request artwork data in this project:
 
+1. <a href="https://developers.vam.ac.uk/guide/v2/welcome.html" target="_blank" >Victoria & Albert Museum API</a>
+
+2. <a href="https://api.artic.edu/docs/#quick-start" target="_blank" >The Art Institue of Chicago API</a>
+
+The Exhibit project uses <a href="https://www.vecteezy.com/free-vector/website-error">Website Error Vectors by Vecteezy</a>
