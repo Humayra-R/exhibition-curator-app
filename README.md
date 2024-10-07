@@ -59,6 +59,7 @@ Vite was used to create the React JS template for this project.
 1. Open VS code or another text editor and run the command below in the terminal from the root directory:
 
 ```
+
 git clone https://github.com/Humayra-R/exhibition-curator-app.git 
 
 ```
