@@ -1,4 +1,12 @@
-Exhibit is a gallery building website hosted on https://virtual-exhibit.netlify.app/ 
+# EXHIBIT    
+
+A website for creating personalised exhibitions built using React JS, JSX and CSS.  
+
+---
+
+## Introduction
+
+Exhibit is a website featuring images of artworks from Victoria & Albert Musuem<sup>1</sup> and the Institute of Art Chicago<sup>2</sup> for curating user exhibitions. Once an user creates an account or logs in, they can start adding artworks to their gallery which can be viewed in the user dashboard. The user can add or delete images or delete the entire gallery if they wish to do so. The gallery has a limitation of 30 artworks. 
 
 'Existing user details' to try out: email: borsha_b@outlook.com, password: boishakh
 More mock users can be added or used from curatorsData.js file located in ./src/assets
