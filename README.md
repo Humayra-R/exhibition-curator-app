@@ -36,8 +36,6 @@ No data is saved in a database or locally between sessions, but it is advisable 
 
 The Exhibit website is hosted on Netlify.
 
-<a href="https://virtual-exhibit.netlify.app/" target="_blank">Exhibit</a>
-
 https://virtual-exhibit.netlify.app/
 
 
