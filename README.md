@@ -10,7 +10,6 @@ A website for creating personalised exhibitions built using React JS, JSX and CS
 
 ## Contents:
 1. [Introduction](#introduction)
-    a. [Hosted Website](#hosted-website)
 
 2. [Instructions](#instructions)
 
