@@ -3,7 +3,7 @@ import { Link, Navigate } from "react-router-dom"
 import { useContext } from 'react'
 import { UserContext } from '../context/UserContext'
 import { curators } from "../assets/data/curatorData"
-import "../assets/css/form.css"
+import "../assets/css/login.css"
 
 export const Login = () => {
     const [ user, setUser ] = useContext(UserContext)
@@ -45,39 +45,50 @@ export const Login = () => {
     return (
         <div className="container">
             {userEmail && <Navigate to="/dashboard" /> }
-            <section>
+            <section className="login-form">
                 <h2>Sign In:</h2>
                 <form onSubmit={handleSubmit} >
-                    {!userEmail && <div>
-                        <label>
-                            Email
-                        <input 
-                            type="email" 
-                            name="email" 
-                            required 
-                            onChange={handleChange}
-                            value={loginInput.email} 
-                        />
-                        </label>              
-                    </div>}
-                    {!userEmail && <div>
-                        <label>
-                            Password
-                            <input 
+                    {!userEmail && 
+                        <>
+                            <div>
+                                <label htmlFor="email" >Email</label>
+                            </div>
+                            <div>
+                                <input 
+                                    type="email" 
+                                    name="email" 
+                                    required 
+                                    onChange={handleChange}
+                                    value={loginInput.email} 
+                                /> 
+                            </div>  
+                        </>
+                    
+                        }
+                    {!userEmail && 
+                        <>
+                            <div>
+                            <label htmlFor="password" >Password</label>
+                            </div>
+                            <div>
+                                <input 
                                 type="password"
                                 name="password" 
                                 required 
                                 onChange={handleChange}
                                 value={loginInput.password} 
-                            />
-                        </label>
-                    </div>}
+                            /> </div>
+                        </> }
                     {!userEmail && <div>
-                        <button type="submit" aria-label="button for submitting login form" > Sign In </button>       
+                        <button type="submit" aria-label="button for submitting login form" >Sign In</button>       
                     </div>}
                 </form>
-                {msg && <p> {msg} </p>}
-                {!userEmail && <Link to="/">Sign Up</Link>}
+                <div>
+                    {msg && <p> {msg} </p>}
+                </div>
+                <div>
+                    {!userEmail && <Link to="/">Sign Up</Link>}
+                </div>
             </section>
         </div>
     )
