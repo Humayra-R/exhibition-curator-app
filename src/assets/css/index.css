@@ -1,16 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
 
+html {
+    height: 100%;
+}
+
 root {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    height: 100%;
-    width: 100%;
 }
 
 body {
     font-family: 'Source Serif 4', sans-serif;
     margin: 0;
+    min-height: 100%;
 }
 
 li {
@@ -20,23 +23,33 @@ li {
 a {
     text-decoration: none;
     color: black;
-    font-size: inherit;
+    /* font-size: inherit; */
 }
 
 button {
     margin: 0;
-    padding: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: black;
     border: 0;
-    background: transparent;
-    font-size: inherit;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ecbd24;
     cursor: pointer;
+}
+
+button:hover {
+    -webkit-box-shadow: 0 0 10px #b19e9e;
+    box-shadow: 0 0 10px #8d8282;
+    background-color: #ecbd24;
+    color: black;
 }
 
 .err-img img {
     max-width: 400px;
 }
 
-.reg-form {
-    display: flex;
-    flex-direction: row;
-}

@@ -28,7 +28,7 @@ Exhibit is a website featuring images of artworks from [Victoria & Albert Musuem
 Email: borsha_b@outlook.com    
 Password: boishakh
 
-More mock users can be added or used from curatorsData.js file located in ./src/assets. Alternatively, the user can create a temporary account directly on the website. 
+More mock users can be added or used from curatorsData.js file located in ./src/assets/data. Alternatively, the user can create a temporary account directly on the website. 
 
 No data is saved in a database or locally between sessions, but it is advisable not to input any sensitive information.
 

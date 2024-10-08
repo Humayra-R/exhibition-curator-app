@@ -11,4 +11,4 @@ export const getMuseumData = async (medium = 'painting', pageNo = 1) => {
     const checkedData = checkMuseData(records)
 
     return checkedData
-    }
+}
