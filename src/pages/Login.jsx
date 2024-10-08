@@ -3,7 +3,7 @@ import { Link, Navigate } from "react-router-dom"
 import { useContext } from 'react'
 import { UserContext } from '../context/UserContext'
 import { curators } from "../assets/data/curatorData"
-import "../assets/css/login.css"
+import "../assets/css/form.css"
 
 export const Login = () => {
     const [ user, setUser ] = useContext(UserContext)
@@ -28,26 +28,31 @@ export const Login = () => {
         e.preventDefault()
         
         const userDetails = curators.find((user) => {
-            return user.email === loginInput.email && user.password === loginInput.password
+            return user.email === loginInput.email
         })
 
         if (!userDetails) {
             setMsg("Email does not exist")
-        }
 
-        setUser({name: userDetails.firstName, email: userDetails.email})
+            setloginInput({ email: '', password: ''})
+        }
+        else if (userDetails.password === loginInput.password) {
+            setUser({name: userDetails.firstName, email: userDetails.email})
+
+            setloginInput({ email: '', password: ''})
+        }
+        else if (userDetails.password !== loginInput.password) {
+            setMsg('Incorrect password')
+        }
         
-        setloginInput((prev) => {
-            return {...prev, email: '', password: ''}
-        })
     }
 
     return (
-        <div className="container">
+        <div className="container"  >
             {userEmail && <Navigate to="/dashboard" /> }
-            <section className="login-form">
+            <section className="form-and-link" id="login-form">
                 <h2>Sign In:</h2>
-                <form onSubmit={handleSubmit} >
+                <form onSubmit={handleSubmit} className="form-section" >
                     {!userEmail && 
                         <>
                             <div>
@@ -79,16 +84,18 @@ export const Login = () => {
                                 value={loginInput.password} 
                             /> </div>
                         </> }
-                    {!userEmail && <div>
-                        <button type="submit" aria-label="button for submitting login form" >Sign In</button>       
-                    </div>}
+                        <div className="failed-text">
+                            {msg && <p> {msg} </p>}
+                        </div>
+                        <div className="clickables" >
+                            {!userEmail && <div> 
+                                <button type="submit" aria-label="button for submitting login form" >Sign In</button> 
+                                </div>}
+                            <div>
+                                {!userEmail && <Link id="login-a-tag" to="/">Sign Up</Link>}
+                            </div>
+                        </div>
                 </form>
-                <div>
-                    {msg && <p> {msg} </p>}
-                </div>
-                <div>
-                    {!userEmail && <Link to="/">Sign Up</Link>}
-                </div>
             </section>
         </div>
     )

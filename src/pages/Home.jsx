@@ -13,8 +13,9 @@ export const Home = () => {
             <div className="home-text">
             <h2>Welcome to Exhibit</h2> 
                 <div className="text">
-                    <p className="brief">A digital space for expressing your artistic voice.</p>
-                    {!email && <p className="conditioned">Register or sign in to start curating your exhibition.</p>}  
+                    <p className="form-subheading">A digital space for expressing your artistic voice.</p>
+                    {!email && <p className="form-info">Register or sign in to start curating your exhibition.</p>}  
+                    {email && <p className="form-info" > Head over to your <Link to="/dashboard" >dashboard</Link> or  <Link to="/explore" >browse artworks</Link></p>}
                 </div>
  
             </div>
@@ -25,7 +26,6 @@ export const Home = () => {
                 <div>
                 {!email && <Register />} 
                 </div>
-
             </div>
         </div>
     )

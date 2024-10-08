@@ -8,18 +8,16 @@ h2, h3 {
     flex-direction: row;
     justify-content: center;
     margin-top: 3em;
-    /* margin-left: 2em;
-    margin-right: 2em; */
 }
 
 .home-text {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     border: solid 3px #e8ba2388;
     padding-left: 1em;
     padding-right: 1em;
     padding-top: 0.5em;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-top-left-radius: 3.5px;
+    border-bottom-left-radius: 3.5px;
     background: linear-gradient(to bottom right, #d0abee51, #c3bef05e, #cadefc7d);
 }
 
@@ -34,14 +32,22 @@ h2, h3 {
     justify-content: space-between;
 }
 
-.brief {
+.form-subheading {
     margin-bottom: 5em;
 }
 
-.conditioned {
+.form-info {
     margin-top: 3em;
     font-size: 1.3rem;
     align-self: center;
+}
+
+.form-info a {
+    font-weight: bold;
+}
+
+.form-info a:hover {
+    color: goldenrod;
 }
 
 .form-and-link {
@@ -53,11 +59,12 @@ h2, h3 {
     padding-right: 4rem;
     padding-top: 1em;
     padding-bottom: 1em;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-top-right-radius: 3.5px;
+    border-bottom-right-radius: 3.5px;
 }
 
-.form-and-link h3 {
+.form-and-link h3, h2 {
+    color: darkmagenta;
     margin-bottom: 1em;
 }
 
@@ -72,21 +79,28 @@ h2, h3 {
 
 .form-and-link a:hover {
     border-bottom: 4px solid goldenrod;
+    color: inherit;
 }
 
 .form-and-link input {
     box-sizing: border-box;
     border: 2.5px solid #deceb092;
     border-radius: 7px;
-    width: 280px;
+    width: 20em;
     height: 40px ;
 }
 
-.reg-form div {
+#login-form {
+    border-left: solid 3px #e8ba2388 ;
+    border-top-left-radius: 3.5px;
+    border-bottom-left-radius: 3.5px;
+}
+
+.form-section div {
     padding-top: 0.3em;
 }
 
-.reg-form button {
+.form-section button {
     margin-top: 0.5em;
 }
 
@@ -98,17 +112,27 @@ h2, h3 {
     justify-content: center;
 }
 
-.reg-failed-text {
+.failed-text {
     margin: 0;
     padding: 0;
     font-size: 1rem;
     text-align: center;
 }
 
+#login-a-tag {
+    margin-right: 0.3em;
+    margin-top: 0.2em;
+}
+
 @media (max-width: 842px) {
    .container {
         flex-direction: column;
         margin: 2em;
+   }
+
+   #login-form {
+    justify-content: center;
+    margin: inherit;
    }
 
    .home-text {
@@ -145,8 +169,8 @@ h2, h3 {
     .container {
         margin: 0;
     }
+
     .form-and-link input {
         width: inherit;
-        flex-wrap: wrap;
     }
   }
