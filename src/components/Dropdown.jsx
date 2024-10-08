@@ -4,7 +4,7 @@ import { UserContext } from "../context/UserContext"
 import "../assets/css/dropdown.css"
 
 export const Dropdown = () => {
-    const [ openDropdown, setOpenDropdown ] = useState(false)
+    const [ openDropdown, setOpenDropdown ] = useState(true)
 
     const [ user, setUser ] = useContext(UserContext)
     const { name, email } = user

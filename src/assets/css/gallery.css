@@ -11,11 +11,13 @@
 }
 
 .gallery-wrapper .single-img {
+    border: 20px solid darkolivegreen;
     width: 250px;
     cursor: pointer;
 }
 
 .gallery-wrapper .single-img img {
+   
     max-width: 100%;
 }
 

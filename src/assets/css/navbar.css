@@ -98,7 +98,12 @@ nav .menu span {
         display: flex;
     }
 
-    nav ul li, .nav-item {
+    /* nav ul li, .nav-item {
+        width: 100%;
+        text-align: center;
+    } */
+
+    .open {
         width: 100%;
         text-align: center;
     }
