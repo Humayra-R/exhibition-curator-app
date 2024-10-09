@@ -59,9 +59,9 @@ export const Explore = () => {
     }, [])
 
     return (
-        <div className="explore-page-container">
-            <div>
-                <h2> Explore Artworks </h2>
+        <div>
+            <div >
+                <h2 className="explore-page-header"> Explore Artworks </h2>
             </div>
             <div>
                 <FilterByMedium exploreArtworks={artworks} />

@@ -8,7 +8,7 @@ import { DisplayArtwork } from "../components/DisplayArtworks"
 import { shuffleData } from "./utils/shuffleData";
 import { useErrorBoundary } from "react-error-boundary"
 import { Loader } from "../components/Loader"
-// import "../assets/css/filterbox.css"
+import "../assets/css/filterbox.css"
 
 export const FilterByMedium = ({ exploreArtworks }) => {
     

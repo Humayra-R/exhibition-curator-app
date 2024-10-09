@@ -58,7 +58,7 @@ export const DisplayArtwork = ({ data }) => {
     }
 
     return (
-        <div>
+        <>
             <ul className='gallery-wrapper'>
                 {
                 data.map((artwork, index) => {
@@ -106,6 +106,6 @@ export const DisplayArtwork = ({ data }) => {
                 })
                 } 
             </ul>
-        </div>
+        </>
     )
 }
