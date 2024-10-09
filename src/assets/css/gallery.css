@@ -1,7 +1,7 @@
 .gallery-wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
     align-items: start;
     justify-content: center;
     max-width: 100%;
@@ -15,21 +15,47 @@
 .gallery-wrapper .single-img {
     padding: 0.7em;
     width: 250px;
-    color: rgb(251, 224, 76);
+    color: rgb(246, 222, 86);
     cursor: pointer;
+    background-color: rgb(108, 28, 28);
+    border-radius: 3px;
 }
 
-.single-img a {
-    color: rgb(251, 224, 76);
-}
 
 .gallery-wrapper .single-img img {
     max-width: 100%;
-    /* border-radius: 3px; */
+    border-radius: 3px;
 }
 
 .gallery-wrapper .single-img img:hover {
     transform: scale(1.02);
-    border: 10px solid rgba(128, 128, 128, 0.451);
 }
+
+.gallery-wrapper p {
+    font-weight: bold;
+   text-align: center;
+}
+
+.gallery-wrapper a  {
+    color: rgb(251, 224, 76);
+}
+
+.gallery-wrapper a:hover  {
+    color: black;
+}
+
+.delete-icon {
+    color: gold;
+}
+
+.delete-icon:hover {
+    color: black;
+}
+
+.interactives {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 

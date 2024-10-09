@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../context/UserContext'
 import { GalleryContext } from "../context/GalleryContext"
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSquarePlus, faSquareMinus, faCircleInfo } from "@fortawesome/free-solid-svg-icons"
 import "../assets/css/gallery.css"
 
 export const DisplayArtwork = ({ data }) => {
@@ -81,7 +83,6 @@ export const DisplayArtwork = ({ data }) => {
                     return (
                         <div key={artwork.systemNumber || artwork.main_reference_number} >
                             <div className='single-img'>
-                                
                                     <li>
                                         <img src={imgSource} />
                                     </li>
@@ -97,10 +98,13 @@ export const DisplayArtwork = ({ data }) => {
                                     {/* <li>
                                         <p> {artwork.objectType || artwork.artwork_type_title || "Unknown"} </p>
                                     </li> */}
-                                    <button> <Link to={linkSrc} target='_blank'>More</Link> </button> 
+                                <div className='interactives' >
+                                        {!artRefs.includes(checkId) && email && <button onClick={() => handleAdd(artwork)}> <FontAwesomeIcon icon={faSquarePlus} size='xl' /> </button>}
+                                        {artRefs.includes(checkId) && email && <button onClick={() => handleDel(artwork)}> <FontAwesomeIcon icon={faSquareMinus}  size='xl'/> </button>}  
+                                        <button className='more-button'> <Link to={linkSrc} target='_blank'> More  <FontAwesomeIcon icon={faCircleInfo} size='s' /> </Link> </button> 
+                                    
+                                </div>
                             </div>
-                                {!artRefs.includes(checkId) && email && <button onClick={() => handleAdd(artwork)}> add </button>}
-                                {artRefs.includes(checkId) && email && <button onClick={() => handleDel(artwork)}> delete </button>}  
                         </div>
                     )
                 })
