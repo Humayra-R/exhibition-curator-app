@@ -8,6 +8,7 @@ import { DisplayArtwork } from "../components/DisplayArtworks"
 import { shuffleData } from "./utils/shuffleData";
 import { useErrorBoundary } from "react-error-boundary"
 import { Loader } from "../components/Loader"
+import "../assets/css/filterbox.css"
 
 export const FilterByMedium = ({ exploreArtworks }) => {
     
@@ -94,17 +95,23 @@ export const FilterByMedium = ({ exploreArtworks }) => {
     }, [selectedOption, filterQuery])
 
     return (
-        <div>
-            <h3>Artworks by Category</h3>
-            <Select
-                defaultValue={selectedOption}
-                onChange={setSelectedOption}
-                options={filterByMedium}
-                placeholder="Select an option to see more artworks"
-                isClearable
-            />
+        <>
+            <div className="filter-section">
+                    <div>
+                        <h3>Filter Artworks</h3>
+                    </div>
+                    <div>
+                        <Select className="filter-box"
+                            defaultValue={selectedOption}
+                            onChange={setSelectedOption}
+                            options={filterByMedium}
+                            placeholder="Select option"
+                            isClearable
+                        /> 
+                    </div>
+            </div>
             <DisplayArtwork data={artworks} />
             {isLoading && <Loader />}
-        </div>
+        </>
     )
 }
