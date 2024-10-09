@@ -61,9 +61,9 @@ export const NavBar = () => {
                            {name[0].toUpperCase() + name.slice(1)}
                         </NavLink>
                     </li>}
-                    {isMenuOpen && email && <li className="nav-item" onClick={() => {setUser({name: '', email: ''})}}  >
+                    {isMenuOpen && email && <li className="logout-item" onClick={() => {setUser({name: '', email: ''})}}  >
                             Sign Out
-                        </li>}
+                    </li>}
                 </ul>
             </nav>  
         </div>
