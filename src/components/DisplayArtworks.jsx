@@ -7,7 +7,6 @@ import { faSquarePlus, faSquareMinus, faCircleInfo } from "@fortawesome/free-sol
 import "../assets/css/gallery.css"
 
 export const DisplayArtwork = ({ data }) => {
-    
     const [ user, setUser ] = useContext(UserContext)
     const { name, email } = user
 
@@ -101,7 +100,7 @@ export const DisplayArtwork = ({ data }) => {
                                 <div className='interactives' >
                                         {!artRefs.includes(checkId) && email && <button onClick={() => handleAdd(artwork)}> <FontAwesomeIcon icon={faSquarePlus} size='xl' /> </button>}
                                         {artRefs.includes(checkId) && email && <button onClick={() => handleDel(artwork)}> <FontAwesomeIcon icon={faSquareMinus}  size='xl'/> </button>}  
-                                        <button className='more-button'> <Link to={linkSrc} target='_blank'> More  <FontAwesomeIcon icon={faCircleInfo} size='s' /> </Link> </button> 
+                                        <button className='more-button'> <Link to={linkSrc} target='_blank'> More  <FontAwesomeIcon icon={faCircleInfo} size='sm' /> </Link> </button> 
                                     
                                 </div>
                             </div>

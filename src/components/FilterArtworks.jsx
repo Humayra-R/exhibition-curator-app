@@ -72,7 +72,6 @@ export const FilterByMedium = ({ exploreArtworks }) => {
                     const shuffledArtworks = shuffleData(allArtworks)
                     
                     setArtworks(shuffledArtworks)
-                    setArtworks(allArtworks)
 
                     setIsLoading(false)
                 }

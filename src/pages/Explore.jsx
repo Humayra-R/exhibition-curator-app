@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { useSearchParams } from "react-router-dom";
 import { getMuseumData } from "../services/getMuseumData"
 import { getArtInstData } from "../services/getArtInstituteData"
 import { DisplayArtwork } from "../components/DisplayArtworks"
@@ -10,11 +11,15 @@ import { Loader } from "../components/Loader"
 
 export const Explore = () => {
     
+    const [ searchParams, setSearchParams ] = useSearchParams()
+
     const [ artworks, setArtworks ] = useState([])
 
     const [ isLoading, setIsLoading ] = useState(false)
 
     const { showBoundary } = useErrorBoundary()
+
+    const filterQuery = searchParams.get('artwork-by-medium')
 
     useEffect(() => {
         let pageNo = 1
@@ -70,7 +75,7 @@ export const Explore = () => {
                 {isLoading && <Loader />}
             </div>
             <div>
-                <DisplayArtwork data={artworks} />
+               {!filterQuery && <DisplayArtwork data={artworks} />}
             </div>
         </div>
     )
