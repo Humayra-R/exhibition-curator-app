@@ -57,3 +57,31 @@ button:hover {
     text-align: center;
     color: darkslategray;
 }
+
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2em;
+    font-size: 1.3rem;
+    color: darkslategray;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.dashboard p {
+    font-size: 1.2rem;
+}
+
+.dashboard a {
+    font-weight: bold;
+    color: #ecbd24;
+}
+
+.dashboard a:hover {
+    text-decoration: underline 3px;
+}
+
+.dashboard button {
+    margin-bottom: 0.3em;
+}

@@ -11,21 +11,22 @@ export const Dashboard = () => {
     const [ userArtworks, setUserArtworks ] = useContext(GalleryContext)
 
     return (
-        <div>
+        <>
             {!email && <Navigate to="/login" />}
-            <div>
-              {email && <p> {name}'s Gallery </p>}  
-            </div>
-            <div>
-               {email && userArtworks.length === 0 && <p> <Link to="/explore">Curate</Link> a new collection </p>}
-               {email && userArtworks.length > 0 && <button aria-label="button for deleting all artworks in the current exhibition" onClick={() => {
-                setUserArtworks([])
-               }} > del </button>}
-            </div>
-            <div>
+            <div className="dashboard">
+                <div>
+                    {email && <h3> {name}'s Gallery </h3>}  
+                </div>
+                <div>
+                    {email && userArtworks.length === 0 && <p> <Link to="/explore">Curate</Link> a new collection </p>}
+                </div>
+                    {email && userArtworks.length > 0 && <button aria-label="button for deleting all artworks in the current exhibition" onClick={() => {
+                    setUserArtworks([])
+                }} > Delete Collection </button>}
                 {!email && <p> <Link to="/login">Sign In</Link>/<Link to="/">Up</Link> to start collecting </p>}
-            </div>
+            </div>    
             {email && userArtworks.length > 0 && <DisplayArtwork data={userArtworks} />}
-        </div>
+        </>
+        
     )
 }
