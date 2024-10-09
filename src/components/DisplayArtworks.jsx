@@ -81,23 +81,23 @@ export const DisplayArtwork = ({ data }) => {
                     return (
                         <div key={artwork.systemNumber || artwork.main_reference_number} >
                             <div className='single-img'>
-                                <Link to={linkSrc} target='_blank'>
+                                
                                     <li>
                                         <img src={imgSource} />
                                     </li>
                                     <li>
-                                        <p> Title: {artwork._primaryTitle || artwork.title || 'Unknown'} </p>
+                                        <p> {artwork._primaryTitle || artwork.title || 'Unknown'} </p>
+                                    </li>
+                                    {/* <li>
+                                        <p> {artwork._primaryMaker ? artwork._primaryMaker.name : "Unknown" || artwork.artist_title || "Unknown"}</p>
                                     </li>
                                     <li>
-                                        <p> Artist: {artwork._primaryMaker ? artwork._primaryMaker.name : "Unknown" || artwork.artist_title || "Unknown"}</p>
-                                    </li>
-                                    <li>
-                                        <p> Date: {artwork._primaryDate ? artwork._primaryDate : 'Unknown' || artwork.date_end} </p>
-                                    </li>
-                                    <li>
-                                        <p> Type: {artwork.objectType || artwork.artwork_type_title || "Unknown"} </p>
-                                    </li>
-                                </Link>
+                                        <p> {artwork._primaryDate ? artwork._primaryDate : 'Unknown' || artwork.date_end} </p>
+                                    </li> */}
+                                    {/* <li>
+                                        <p> {artwork.objectType || artwork.artwork_type_title || "Unknown"} </p>
+                                    </li> */}
+                                    <button> <Link to={linkSrc} target='_blank'>More</Link> </button> 
                             </div>
                                 {!artRefs.includes(checkId) && email && <button onClick={() => handleAdd(artwork)}> add </button>}
                                 {artRefs.includes(checkId) && email && <button onClick={() => handleDel(artwork)}> delete </button>}  

@@ -59,11 +59,19 @@ export const Explore = () => {
     }, [])
 
     return (
-        <div>
-            <h2> Explore Artworks </h2>
-            <FilterByMedium exploreArtworks={artworks} />
-            {isLoading && <Loader />}
-            <DisplayArtwork data={artworks} />
+        <div className="explore-page-container">
+            <div>
+                <h2> Explore Artworks </h2>
+            </div>
+            <div>
+                <FilterByMedium exploreArtworks={artworks} />
+            </div>
+            <div>
+                {isLoading && <Loader />}
+            </div>
+            <div>
+                <DisplayArtwork data={artworks} />
+            </div>
         </div>
     )
 }

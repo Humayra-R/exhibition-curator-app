@@ -31,6 +31,7 @@ export const NavBar = () => {
 
     return (
     <div>
+        {console.log(showDropdown)}
         <div>
             <nav>
                 <h1> EXHIBIT </h1>
