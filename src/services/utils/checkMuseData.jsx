@@ -5,12 +5,16 @@ export const checkMuseData = (data, option = null) => {
     data.forEach((artwork) => {
         if (artwork._primaryImageId 
             && !option 
-            && !artwork._primaryTitle.includes('nude')) {
+            && !artwork._primaryTitle.toLowerCase().includes('nude')
+            && !artwork._primaryTitle.toLowerCase().includes('life drawing')    
+        ) {
             viableData.push(artwork) 
         }
         else if (artwork._primaryImageId 
                 && option === artwork.object_type 
-                && !artwork._primaryTitle.includes('nude')) {
+                && !artwork._primaryTitle.toLowerCase().includes('nude')
+            && !artwork._primaryTitle.toLowerCase().includes('life drawing')
+            ) {
                 viableData.push(artwork)
         }
     })

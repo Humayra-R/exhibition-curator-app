@@ -21,9 +21,6 @@ export const Explore = () => {
 
     const filterQuery = searchParams.get('artwork-by-medium')
 
-    console.log(filterQuery, 'exp');
-    
-
     useEffect(() => {
         let pageNo = 1
 
@@ -32,9 +29,9 @@ export const Explore = () => {
         const artworkData = async (pageNo) => {
 
            try { 
-                const museumPaintingRecords = await getMuseumData('painting', pageNo)
-
                 setIsLoading(true)
+
+                const museumPaintingRecords = await getMuseumData('painting', pageNo)
 
                 museumPaintingRecords.forEach((painting) => {
                     allArtworks.push(painting)
