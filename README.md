@@ -21,7 +21,7 @@ A website for collecting artworks in a personal gallery built using React JS, JS
 ## Introduction
 
 
-Exhibit is a website featuring images of artworks from [Victoria & Albert Musuem](#acknowledgements) and the [Art Institute of Chicago](#acknowledgements) for curating user driven exhibitions. Once a user creates an account and is logged in, they can start adding artworks in their exhibition gallery. The user can add and delete images of artworks or delete the entire collection and start over. This gallery can be viewed in the user's dashboard and has a limitation of 30 artworks.
+Exhibit is a website featuring images of artworks from [Victoria & Albert Musuem](#acknowledgements) and the [Art Institute of Chicago](#acknowledgements) for curating user driven exhibitions. Once a user creates an account and is logged in, they can start adding artworks in their exhibition gallery. The user can add and delete images of artworks or delete their entire collection and start over. The gallery can be viewed in the user's dashboard and has a limitation of 30 artworks.
 
 **Existing user details for signing in:** 
 
@@ -57,33 +57,25 @@ Vite was used to create the React JS template for the Exhibit project.
 1. Open VS code or another text editor and run the command below in the terminal from the root directory:
 
 ```
-
 git clone https://github.com/Humayra-R/exhibition-curator-app.git 
-
 ```
 
 2. *Enter the command below in the terminal* to open the directory:  
 
 ```
-
 cd exhibition-curator-app
-
 ```
 
 3. *Enter the command below in the terminal* to install the required dependencies: 
 
 ```
-
 npm install
-
 ```
 
 4. *Enter the command below in the terminal* to start the application locally: 
 
 ```
-
 npm run dev
-
 ```
 
 ---
@@ -97,7 +89,7 @@ Documentation for the APIs used to request artwork data in the Exhibit project:
 
 2. <a href="https://api.artic.edu/docs/#quick-start" target="_blank" >The Art Institue of Chicago API</a>
 
-
+    
 The Exhibit project uses <a href="https://www.vecteezy.com/free-vector/website-error">Website Error Vectors by Vecteezy</a>
 
 ---
