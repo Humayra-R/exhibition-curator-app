@@ -15,6 +15,8 @@ nav {
     align-items: center;
     position: sticky;
     top: 0;
+    z-index: 2;
+    background-color: white;
 }
 
 nav h1 {
@@ -22,6 +24,7 @@ nav h1 {
     font-size: 4rem;
     color: #e8b923;
     margin: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 nav ul {

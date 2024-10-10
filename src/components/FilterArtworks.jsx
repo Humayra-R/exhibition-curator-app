@@ -26,16 +26,18 @@ export const FilterByMedium = ({ exploreArtworks }) => {
 
     const filterQuery = searchParams.get('artwork-by-medium')
 
+    console.log(filterQuery, 'filt');
+    
+
     let isValidFilterQuery
     if (filterQuery) {
 
         filterByMedium.forEach((opt) => {
-        if (filterQuery.toLowerCase() === filterByMedium.value) {
-            isValidFilterQuery = true
-        }
-    })
-    
-    } 
+            if (filterQuery.toLowerCase() === filterByMedium.value) {
+                isValidFilterQuery = true
+            }
+        })
+    }    
     
     useEffect(() => {
         
@@ -55,9 +57,10 @@ export const FilterByMedium = ({ exploreArtworks }) => {
 
             const artworkData = async () => {
                 try {
-                    const museumPaintingRecords = await getMuseumData(value)
 
                     setIsLoading(true)
+                    
+                    const museumPaintingRecords = await getMuseumData(value)
 
                     museumPaintingRecords.forEach((record) => {
                         allArtworks.push(record)

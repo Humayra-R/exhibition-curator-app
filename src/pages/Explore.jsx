@@ -21,6 +21,9 @@ export const Explore = () => {
 
     const filterQuery = searchParams.get('artwork-by-medium')
 
+    console.log(filterQuery, 'exp');
+    
+
     useEffect(() => {
         let pageNo = 1
 

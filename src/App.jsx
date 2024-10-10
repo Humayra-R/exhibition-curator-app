@@ -13,13 +13,13 @@ function App() {
   const [ userArtworks, setUserArtworks ] = useState([])
 
   return (
-    <div className='bg-gradient'>
+    <>
         <UserContext.Provider value={[ user,  setUser ]}>
           <GalleryContext.Provider value ={[ userArtworks, setUserArtworks ]}>
               <RouterProvider router={router} />
           </GalleryContext.Provider>
         </UserContext.Provider> 
-    </div>
+    </>
   )
 }
 

@@ -30,8 +30,8 @@ export const NavBar = () => {
     }, [isMenuOpen])
 
     return (
-    <div>
-        <div>
+    <>
+        <>
             <nav>
                 <h1> EXHIBIT </h1>
                 <div className="menu" onClick={() => {setisMenuOpen(!isMenuOpen)}} >
@@ -65,11 +65,11 @@ export const NavBar = () => {
                     </li>}
                 </ul>
             </nav>  
-        </div>
+        </>
         {showDropdown && !isMenuOpen && <div onMouseLeave={() => {setShowDropDown(false)}}>  <Dropdown /> </div>}
         <main>
             <Outlet />
         </main> 
-    </div>
+    </>
     )   
 }

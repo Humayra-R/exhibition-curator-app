@@ -15,7 +15,7 @@ export const Dashboard = () => {
             {!email && <Navigate to="/login" />}
             <div className="dashboard">
                 <div>
-                    {email && <h3> {name}'s Gallery </h3>}  
+                    {email && <h3> {name[0].toUpperCase() + name.slice(1)}'s Gallery </h3>}  
                 </div>
                 <div>
                     {email && userArtworks.length === 0 && <p> <Link to="/explore">Curate</Link> a new collection </p>}
