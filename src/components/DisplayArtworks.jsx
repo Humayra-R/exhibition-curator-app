@@ -82,25 +82,22 @@ export const DisplayArtwork = ({ data }) => {
                     return (
                         <div key={artwork.systemNumber || artwork.main_reference_number} >
                             <div className='single-img'>
-                                    <li>
-                                        <img src={imgSource} />
+                                    <li>    
+                                        <Link to={linkSrc} target='_blank'>
+                                            <img src={imgSource} />
+                                        </Link>
                                     </li>
                                     <li>
                                         <p> {artwork._primaryTitle || artwork.title || 'Unknown'} </p>
                                     </li>
-                                    {/* <li>
-                                        <p> {artwork._primaryMaker ? artwork._primaryMaker.name : "Unknown" || artwork.artist_title || "Unknown"}</p>
-                                    </li>
-                                    <li>
-                                        <p> {artwork._primaryDate ? artwork._primaryDate : 'Unknown' || artwork.date_end} </p>
-                                    </li> */}
-                                    {/* <li>
-                                        <p> {artwork.objectType || artwork.artwork_type_title || "Unknown"} </p>
-                                    </li> */}
                                 <div className='interactives' >
                                         {!artRefs.includes(checkId) && email && <button onClick={() => handleAdd(artwork)}> <FontAwesomeIcon icon={faSquarePlus} size='xl' /> </button>}
                                         {artRefs.includes(checkId) && email && <button onClick={() => handleDel(artwork)}> <FontAwesomeIcon icon={faSquareMinus}  size='xl'/> </button>}  
-                                        <button className='more-button'> <Link to={linkSrc} target='_blank'> More  <FontAwesomeIcon icon={faCircleInfo} size='sm' /> </Link> </button> 
+                                        <button className='more-button'> 
+                                            <Link to={linkSrc} target='_blank'> More </Link>   
+                                            <FontAwesomeIcon icon={faCircleInfo} size='sm' />  
+                                        </button> 
+                                    
                                 </div>
                             </div>
                         </div>
