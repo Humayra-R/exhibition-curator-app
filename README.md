@@ -1,3 +1,5 @@
+Website awaiting backend update and currently non-functional due to termination of database hosting service.
+
 # EXHIBIT    
 
 A website for collecting artworks in a personal gallery built using React JS, JSX and CSS.  
